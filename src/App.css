@@ -1,38 +1,109 @@
 .App {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Card  {
+ 
+  background-color: crimson;
+  border-radius: 4px;
+  width: 200px;
+  height: 300px;
+  margin: 10px
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Card:hover {
+  filter: brightness(120%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Card img {
+  width: 80%;
+  height: 80%;
+}
+
+.Card span {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.Card.grass {
+  background-color: lightgreen;
+}
+
+.Card.fire {
+  background-color: lightcoral;
+}
+
+.Card.water {
+  background-color: lightskyblue;
+}
+
+.Card.bug {
+  background-color: lightgray;
+}
+
+.Card.bug span {
+  color: black;
+}
+
+.Card button {
+  border: none;
+  border-radius: 2px;
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  color: white;
+  background-color: crimson;
+  cursor: pointer;
+}
+
+.Detail {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Detail button {
+  border: none;
+  border-radius: 2px;
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  color: white;
+  background-color: crimson;
+  cursor: pointer;
+}
+
+.Large {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Large img {
+  width: 120px;
+  height: auto;
+}
+
+.Large div {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Large button {
+  margin: 2px;
+  width: 140px;
+  height: 40px;
+  font-size: 18px;
+  background-color:mediumslateblue;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Large button:hover {
+  color: black;
 }
