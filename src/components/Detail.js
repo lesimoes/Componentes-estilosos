@@ -29,7 +29,7 @@ export default function Detail() {
           <img src={pokemon.image} />
           <div>
             {pokemon.abilities.map((value, index) => (
-              <button onDoubleClick={() => alert('Foii')} key={index}>{value.ability.name}</button>
+              <button onDoubleClick={() => alert(`Usou ${value.ability.name}`)} key={index}>{value.ability.name}</button>
             ))}
           </div>
         </div>
