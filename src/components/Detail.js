@@ -1,38 +1,25 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { usePokemon } from '../hooks/usePokemon';
+import Card from './Card';
 
 export default function Detail() {
-  const [pokemon, setPokemon] = useState({});
   const { pokemonId } = useParams();
-
   const navigate = useNavigate();
+  const pokemon = usePokemon(pokemonId)
 
 
-  useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setPokemon({
-          name: data.name,
-          type: data.types[0].type.name,
-          image: data.sprites.other['official-artwork'].front_default,
-          abilities: [...data.abilities],
-        });
-      });
-  }, []);
 
   return (
     <div className="Detail">
       {pokemon.name ? (
-        <div className={`Card Large ${pokemon.type}`}>
-          <img src={pokemon.image} />
+        <Card type={pokemon.type} large>
+          <img src={pokemon.image} alt/>
           <div>
             {pokemon.abilities.map((value, index) => (
               <button onDoubleClick={() => alert(`Usou ${value.ability.name}`)} key={index}>{value.ability.name}</button>
             ))}
           </div>
-        </div>
+        </Card>
       ) : (
         'carregando...'
       )}

@@ -1,19 +1,20 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export default function Card({ id, name, image, type }) {
+export default function Card({ children, type, large }) {
   
   return (
-    <Wrapper type={type}>
-      <span>{name}</span>
-      <img src={image} alt={name} />
-      <Link to={`/detail/${id}`}>
-        <button>Detalhes</button>
-      </Link>
-    </Wrapper>
+    <>
+      { large ? (
+        <Large type={type}>
+        {children}
+        </Large>
+    ) : (<Wrapper type={type}>
+          {children}
+        </Wrapper>)}
+    </>
+
   );
 }
-
 
 const Wrapper = styled.div`
   background-color: crimson;
@@ -76,5 +77,35 @@ const Wrapper = styled.div`
   }}
 
 `
+
+const Large = styled(Wrapper)`
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  img {
+  width: 120px;
+  height: auto;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+}
+
+
+button {
+  margin: 2px;
+  width: 140px;
+  height: 40px;
+  font-size: 18px;
+  background-color:mediumslateblue;
+}
+
+button:hover {
+  color: black;
+}
+`;
 
 
