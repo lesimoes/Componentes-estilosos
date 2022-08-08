@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { usePokemon } from '../hooks/usePokemon';
-import Card from './Card';
+import { Card } from './shared'
 
 export default function Detail() {
   const { pokemonId } = useParams();
@@ -8,11 +8,14 @@ export default function Detail() {
   const pokemon = usePokemon(pokemonId)
 
 
+  function handleDbClick () {
+    alert('db click')
+  }
 
   return (
     <div className="Detail">
       {pokemon.name ? (
-        <Card type={pokemon.type} large>
+        <Card type={pokemon.type} large onDoubleClick={handleDbClick}>
           <img src={pokemon.image} alt/>
           <div>
             {pokemon.abilities.map((value, index) => (

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getPokemons } from '../data';
-import Card from './Card';
+import { Card } from './shared';
 
 export default function List() {
   const [pokemons, setPokemons] = useState([]);

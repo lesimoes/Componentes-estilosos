@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
-export default function Card({ children, type, large }) {
+export default function Card({ children, type, large, ...otherProps }) {
   
+
   return (
     <>
       { large ? (
-        <Large type={type}>
+        <Large type={type} {...otherProps}>
         {children}
         </Large>
-    ) : (<Wrapper type={type}>
+    ) : (<Wrapper type={type} {...otherProps}>
           {children}
         </Wrapper>)}
     </>
